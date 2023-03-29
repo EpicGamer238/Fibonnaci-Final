@@ -5,7 +5,7 @@ namespace Fibonnaci_Final
     public partial class Form1 : Form
     {
         Graphics g;
-        int x = 1;
+        int x = 0;
 
         public Form1()
         {
@@ -41,7 +41,7 @@ namespace Fibonnaci_Final
             for (int i = 0; i < count; i++)
             {
                 SolidBrush randBrush = new SolidBrush(Color.FromArgb(255, rand.Next(256), rand.Next(256), rand.Next(256)));
-                Rectangle rect = new Rectangle(0 + (i * formWidth / count), 0, formWidth / count, formHeight / Convert.ToInt32(Math.Pow(2,x)));
+                Rectangle rect = new Rectangle(0 + (i * formWidth / count), 0, formWidth / count, formHeight / count);
                 this.CreateGraphics().FillRectangle(randBrush, rect);
                 this.CreateGraphics().DrawRectangle(blackPen, rect);
             }
@@ -50,7 +50,6 @@ namespace Fibonnaci_Final
         private void Form1_Paint(object sender, PaintEventArgs e)
         {
             g = e.Graphics;
-            drawRect();
         }
 
         private void label1_Click(object sender, EventArgs e)
