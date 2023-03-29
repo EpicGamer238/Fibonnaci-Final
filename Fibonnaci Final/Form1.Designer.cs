@@ -36,7 +36,7 @@
             // 
             numericUpDown1.Location = new Point(261, 241);
             numericUpDown1.Name = "numericUpDown1";
-            numericUpDown1.Size = new Size(28, 23);
+            numericUpDown1.Size = new Size(42, 23);
             numericUpDown1.TabIndex = 0;
             numericUpDown1.Value = new decimal(new int[] { 3, 0, 0, 0 });
             numericUpDown1.ValueChanged += numericUpDown1_ValueChanged;

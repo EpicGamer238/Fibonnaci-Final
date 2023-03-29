@@ -2,6 +2,7 @@ namespace Fibonnaci_Final
 {
     public partial class Form1 : Form
     {
+        Graphics g;
         public Form1()
         {
             InitializeComponent();
@@ -27,26 +28,22 @@ namespace Fibonnaci_Final
 
         private void numericUpDown1_ValueChanged(object sender, EventArgs e)
         {
-            int count = Convert.ToInt32(fib(Convert.ToInt32(numericUpDown1.Value)));
-            int formHeight = this.Height;
-            int formWidth = this.Width;
-            Pen blackPen = new Pen(Color.FromArgb(255, 0, 0, 0), 5);
-            Rectangle rect = new Rectangle(0, 0, formWidth / count, formHeight);
-
+            drawRect(g);
         }
 
-        private void drawRect(PaintEventArgs e)
+        private void drawRect(Graphics e)
         {
             int count = Convert.ToInt32(fib(Convert.ToInt32(numericUpDown1.Value)));
             int formHeight = this.Height;
             int formWidth = this.Width;
             Pen blackPen = new Pen(Color.FromArgb(255, 0, 0, 0), 5);
-            e.Graphics.DrawRectangle(blackPen, 0, 0, formWidth / count, formHeight);
+            e.DrawRectangle(blackPen, 0, 0, formWidth / count, formHeight);
         }
 
         private void Form1_Paint(object sender, PaintEventArgs e)
         {
-            drawRect(e);
+            g = e.Graphics;
+            drawRect(g);
         }
     }
 }
