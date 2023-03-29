@@ -28,12 +28,35 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "Form1";
+            numericUpDown1 = new NumericUpDown();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
+            SuspendLayout();
+            // 
+            // numericUpDown1
+            // 
+            numericUpDown1.Location = new Point(261, 241);
+            numericUpDown1.Name = "numericUpDown1";
+            numericUpDown1.Size = new Size(28, 23);
+            numericUpDown1.TabIndex = 0;
+            numericUpDown1.Value = new decimal(new int[] { 3, 0, 0, 0 });
+            numericUpDown1.ValueChanged += numericUpDown1_ValueChanged;
+            // 
+            // Form1
+            // 
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(800, 450);
+            Controls.Add(numericUpDown1);
+            Name = "Form1";
+            Text = "Form1";
+            Load += Form1_Load;
+            Paint += Form1_Paint;
+            ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
+            ResumeLayout(false);
         }
 
         #endregion
+
+        private NumericUpDown numericUpDown1;
     }
 }
