@@ -37,11 +37,11 @@ namespace Fibonnaci_Final
             int formHeight = this.Height;
             int formWidth = this.Width;
             Pen blackPen = new Pen(Color.FromArgb(255, 0, 0, 0), 1);
-            int count = Convert.ToInt32(fib(Convert.ToInt32(x) - 1));
-            for (int i = 0; i < count; i++)
+            for (int j = 0; j < x; j++)
             {
+                int count = Convert.ToInt32(fib(Convert.ToInt32(j)));
                 SolidBrush randBrush = new SolidBrush(Color.FromArgb(255, rand.Next(256), rand.Next(256), rand.Next(256)));
-                Rectangle rect = new Rectangle(0 + (i * formWidth / count), 0, formWidth / count, formHeight / count);
+                Rectangle rect = new Rectangle(formWidth-(j * formWidth / x), formHeight - (formHeight / count), formWidth / x, formHeight - (formHeight / count) - 10);
                 this.CreateGraphics().FillRectangle(randBrush, rect);
                 this.CreateGraphics().DrawRectangle(blackPen, rect);
             }
@@ -54,6 +54,7 @@ namespace Fibonnaci_Final
 
         private void label1_Click(object sender, EventArgs e)
         {
+            Refresh();
             x++;
             label1.Text = x.ToString();
             drawRect();
