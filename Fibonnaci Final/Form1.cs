@@ -1,10 +1,36 @@
 /*HEADER:
  *Author: Simon Wunderlich
  *For Unit 1 & 2 Computing
- * Date of last edit: 01/04/23
+ * Date of last edit: 22/04/23
  * SUMMARY: Program recieves a number input and find the value at that index of the fibonacci sequence. It then draws the amaount of boxes as the fibonacci value, each with the height and width of the screen divided by the fibonacci value ontop of all the boxes for the previous indexes
  */
 
+/*PSEUDOCODE
+ * START
+ *  DEFINE getFibValue(NUMERICAL index)
+ *      LIST fib ADD 1
+ *      fib ADD 1
+ *      FOR COUNT index
+ *          NUMERICAL x <- 1
+ *          fib ADD (fib[x] PLUS fib[x MINUS 1]
+ *          x PLUS 1
+ *      return fib[index]
+ *      
+ *  DISPLAY "ENTER INDEX VALUE"
+ *  NUMERICAL _index <- INPUT
+ *  FOR COUNT _index
+ *      NUMERICAL increment <- 1
+ *      NUMERICAL count <- CALL getFibValue(increment)
+ *      
+ *      FOR COUNT count
+ *          NUMERICAL i <- 0
+ *          DRAW RECTANGLE: X Position <- (i MULTIPLIED BY Screen Width) DIVIDED BY count
+ *                          Y Position <- 0
+ *                          Width <- Screen Width DIVIDED BY count
+ *                          Height <- Screen Height DIVIDED BY count
+ *      increment PLUS 1
+ *       
+ */
 using System.Windows.Forms;
 
 namespace Fibonnaci_Final
@@ -65,7 +91,7 @@ namespace Fibonnaci_Final
                 //y position at top of screen
                 //Width is window width divided by fibonacci value
                 //Height is window height divided by fibonacci value
-                Rectangle rect = new Rectangle(0 + (i * formWidth / count), 0, formWidth / count, formHeight / count);
+                Rectangle rect = new Rectangle(i * formWidth / count, 0, formWidth / count, formHeight / count);
 
                 //Draws rectangle + outline
                 this.CreateGraphics().FillRectangle(randBrush, rect);
